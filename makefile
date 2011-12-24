@@ -9,13 +9,13 @@
 # -Wall performs more rigurous type checking 
 MOREFLAGS = -Wall
 
-SOURCE =  confArgs.c audioConfig.c audioConfig.c conf1.c 
+SOURCE =  confArgs.c audioConfig.c audioConfig.c conf.c 
 
-conf1:	conf1.o confArgs.o audioConfig.o circularBuffer.o
-	gcc $(MOREFLAGS) -o conf1 conf1.o confArgs.o audioConfig.o circularBuffer.o -lm
+conf:	conf.o confArgs.o audioConfig.o circularBuffer.o
+	gcc $(MOREFLAGS) -o conf conf.o confArgs.o audioConfig.o circularBuffer.o -lm
 
-conf1.o:	conf1.c
-	gcc $(MOREFLAGS) -c conf1.c
+conf.o:	conf.c
+	gcc $(MOREFLAGS) -c conf.c
 
 confArgs.o:	confArgs.c confArgs.h
 	gcc $(MOREFLAGS) -c confArgs.c
