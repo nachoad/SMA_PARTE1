@@ -1,13 +1,13 @@
-/* 
-PRACTICA 1 SISTEMAS MULTIMEDIA AVANZADOS - RTP
-
-- AUTORES:
-	CARLOS HERVÁS SILVAN
-	IGNACIO ALONSO DELGADO
-
-- FECHA:
-	NOVIEMBRE 2011 	
-*/
+/*//////////////////////////////////////////////////////// 
+//   PRACTICA 1 SISTEMAS MULTIMEDIA AVANZADOS - RTP
+// 
+//   - AUTORES:
+//   	CARLOS HERVÁS SILVAN
+//   	IGNACIO ALONSO DELGADO
+//
+//   - FECHA:
+//   	NOVIEMBRE 2011 	
+////////////////////////////////////////////////////////*/
 
 //////////////////////
 //INCLUDES LIBRERIAS
@@ -93,7 +93,8 @@ int main(int argc, char *argv[]) {
 	u_int32 numSec=0; 
 	unsigned int nSeq;
 	int operation;  /* Requested mode of operation: first or second. Values defined in conf.h: enum operat {FIRST, SECOND, BOUNCE}; - in your case, BOUNCE won't be supported! */
-	char firstIP[16]; /* For 'second' mode only: returns the requested address of node 'first' */  	char secondMulticastIP[16]; /* For 'first' mode only: returns the requested MULTICAST address of node 'second' if -m option is used */
+	char firstIP[16]; /* For 'second' mode only: returns the requested address of node 'first' */  
+	char secondMulticastIP[16]; /* For 'first' mode only: returns the requested MULTICAST address of node 'second' if -m option is used */
 	int port; /* Both modes: returns the port requested to be used in the communication */ 
 	int vol; /* Both modes: returns the volume requested (for both playing and recording). Value in range [0..100] */
 	int packetDuration;  /*Both modes: returns the requested duration of the playout of an UDP packet. Measured in ms */
@@ -131,7 +132,8 @@ int main(int argc, char *argv[]) {
 		timestamp=(1024/16)/44.1;
 		datQualitySnd.format=16;
 		datQualitySnd.channels=1;
-		datQualitySnd.freq=44100;	}
+		datQualitySnd.freq=44100;
+	}
 
 	//Calculo del tamaño del paquete	
 	DataPacket=(datQualitySnd.freq*packetDuration/1000)/8; //Al dividir entre 8 tenemos bytes
@@ -147,127 +149,119 @@ int main(int argc, char *argv[]) {
 	char buf[MAXBUF],paqueteRTP[MAXBUF]; /* bufRecord[MAXBUF-12]to receive data from remote node */
 
 
+	//////////////////////////////
+	//Si estamos en el FIRST...
+	//////////////////////////////
+	if (strcmp ("first", argv[1]) == 0) {
+
+		/* preparing bind */
+		bzero(&local, sizeof(local));
+		local.sin_family = AF_INET;
+		local.sin_port = htons(port); /*port  besides filtering, will assure that info is being sent with this PORT as local port */
+
+		if (inet_aton(secondMulticastIP, &local.sin_addr) < 0) {
+	    	perror("inet_aton");
+	    	return 1;
+	  	}
+
+	  	/* creating socket */
+	  	if ((s = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
+	    	perror("socket");
+	    	return 1;
+	  	}
+
+	  	/* binding socket - using mcast local address */
+		if (bind(s, (struct sockaddr *)&local, sizeof(local)) < 0) {
+			perror("bind");
+			return 1;
+		}
+
+		/* setsockopt configuration for joining to mcast group */
+		if (inet_aton(secondMulticastIP, &mreq.imr_multiaddr) < 0) {
+			perror("inet_aton");
+			return 1;
+		}
+		mreq.imr_interface.s_addr = htonl(INADDR_ANY);
+
+		if (setsockopt(s, IPPROTO_IP, IP_ADD_MEMBERSHIP, &mreq, sizeof(mreq)) < 0) {
+			perror("setsockopt");
+			return 1;
+		}
+
+		printf("FIRST:Esperando a recibir un send to del SECOND\n"); fflush (stdout);
+		from_len = sizeof (rem); /* remember always to set the size of the rem variable in from_len */	
+		if ((r = recvfrom(s, buf, MAXBUF, 0, (struct sockaddr *) &rem, &from_len)) < 0) {
+			perror ("recvfrom");
+	    } else {
+	    	    buf[r] = 0; /* convert to 'string' by appending a 0 value (equal to '\0') after the last received character */
+	    	    printf("FIRST: Recibido mensaje y ya tenemos la direccion de SECOND\n"); fflush (stdout);
+	    }
+
+	    /* Using sendto to send information. Since I've made a bind to the socket, the local (source) port of the packet is fixed. 
+	    In the rem structure I have the address and port of the remote host, as returned by recvfrom */ 
+	    if ( (r = sendto(s, message, sizeof(message), /* flags */ 0, (struct sockaddr *) &rem, sizeof(rem)))<0) {
+		perror ("sendto");
+	    } else {
+	      buf[r] = 0;
+	      printf("FIRST: Mandamos mensaje a la direccion multicast delSECOND\n"); fflush (stdout);
+	    }
+
+
+	}// Fin del if FIRST
+
+
 	///////////////////////////
 	//Si estamos en el SECOND...
 	///////////////////////////
-	if (strcmp ("second", argv[1]) == 0) {
-	printf("SECOND: Ha entrado en SECOND\n"); fflush (stdout);
+	elsif (strcmp ("second", argv[1]) == 0) {
+		printf("-SECOND: Ha entrado en SECOND\n"); fflush (stdout);
 
-  	/* preparing bind */
- 	bzero(&local, sizeof(local));
- 	local.sin_family = AF_INET;
-  	local.sin_port = htons(port);
-  	local.sin_addr.s_addr = htonl (INADDR_ANY);//INADDR_ANY
+  		/* preparing bind */
+ 		bzero(&local, sizeof(local));
+ 		local.sin_family = AF_INET;
+  		local.sin_port = htons(port);
+  		local.sin_addr.s_addr = htonl (INADDR_ANY);//INADDR_ANY
 
-  	if ((s = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
-   		 perror("socket");
-   		 return 1;
-  	}
+  		if ((s = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
+   		 	perror("socket");
+   		 	return 1;
+  		}
 
-  	/* binding socket (to unicast local address) */
- 	if (bind(s, (struct sockaddr *)&local, sizeof(local)) < 0) {
+  		/* binding socket (to unicast local address) */
+ 		if (bind(s, (struct sockaddr *)&local, sizeof(local)) < 0) {
    		perror("bind");
    		return 1;
- 	 }
+ 	 	}
 
-	/* building structure for remote address/port */
-	bzero(&rem, sizeof(rem));
-	rem.sin_family = AF_INET;
-	rem.sin_port = htons(port);
-	if (inet_aton(firstIP, &rem.sin_addr) < 0) { //secondMulticastIP
-		perror("inet_aton");
-		return 1;
-	}
-
-	printf("-SECOND:Hago SENDTO al FIRST\n"); fflush (stdout);
-    /* Using sendto to send information. Since I've made a bind to the socket, the local (source) port of the packet is fixed. In the rem structure I set the remote (destination) address and port */ 
-    if ( (r = sendto(s, message, sizeof(message), /* flags */ 0, (struct sockaddr *) &rem, sizeof(rem)))<0) {
-	perror ("sendto");
-    } else {
-      buf[r] = 0;
-      printf("SECOND: hace Send to al FIRST (Multicas)\n"); fflush (stdout);
-    }
+		/* building structure for remote address/port */
+		bzero(&rem, sizeof(rem));
+		rem.sin_family = AF_INET;
+		rem.sin_port = htons(port);
+		if (inet_aton(firstIP, &rem.sin_addr) < 0) { //secondMulticastIP
+			perror("inet_aton");
+			return 1;
+		}
+		
+		printf("-SECOND: Hago SENDTO al FIRST\n"); fflush (stdout);
+    	/* Using sendto to send information. Since I've made a bind to the socket, the local (source) port of the packet is fixed. In the rem structure I set the remote (destination) address and port */ 
+    	if ( (r = sendto(s, message, sizeof(message), /* flags */ 0, (struct sockaddr *) &rem, sizeof(rem)))<0) {
+			perror ("sendto");
+    	} else {
+      		buf[r] = 0;
+      		printf("-SECOND: Hago sendto() al FIRST (Multicast)\n"); fflush (stdout);
+    	}
 	
+		from_len = sizeof (rem); 
 
+		/* receives from any who wishes to send to host1 in this port */  
+		if ((r = recvfrom(s, buf, MAXBUF, 0, (struct sockaddr *) &rem_uni, &from_len)) < 0) {
+			perror ("recvfrom");
+		} else {
+			buf[r] = 0;
+			printf("-SECOND: Mensaje recibido del FIRST %s\n",buf); fflush (stdout);
+		}
 
-    from_len = sizeof (rem); 
-
-  /* receives from any who wishes to send to host1 in this port */  
-  if ((r = recvfrom(s, buf, MAXBUF, 0, (struct sockaddr *) &rem_uni, &from_len)) < 0) {
-  	  perror ("recvfrom");
-    } else {
-      buf[r] = 0;
-      printf("SECOND: Mensaje recibido del FIRST %s\n",buf); fflush (stdout);
-    }
-
-
-}// Fin del if FIRST
-
-
-
-//////////////////////////////
-//Si estamos en el FIRST...
-//////////////////////////////
-else if (strcmp ("first", argv[1]) == 0) {
- 
-  /* preparing bind */
-  bzero(&local, sizeof(local));
-  local.sin_family = AF_INET;
-  local.sin_port = htons(port); /*port  besides filtering, will assure that info is being sent with this PORT as local port */
-  
-  if (inet_aton(secondMulticastIP, &local.sin_addr) < 0) {
-    perror("inet_aton");
-    return 1;
-  }
-  
-  /* creating socket */
-  if ((s = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
-    perror("socket");
-    return 1;
-  }
-
-  /* binding socket - using mcast local address */
-  if (bind(s, (struct sockaddr *)&local, sizeof(local)) < 0) {
-    perror("bind");
-    return 1;
-  }
-
-  /* setsockopt configuration for joining to mcast group */
-  if (inet_aton(secondMulticastIP, &mreq.imr_multiaddr) < 0) {
-    perror("inet_aton");
-    return 1;
-  }
-  mreq.imr_interface.s_addr = htonl(INADDR_ANY);
-
-  if (setsockopt(s, IPPROTO_IP, IP_ADD_MEMBERSHIP, &mreq, sizeof(mreq)) < 0) {
-    perror("setsockopt");
-    return 1;
-  }
-
- printf("FIRST:Esperando a recibir un send to del SECOND\n"); fflush (stdout);
-  from_len = sizeof (rem); /* remember always to set the size of the rem variable in from_len */	
-  if ((r = recvfrom(s, buf, MAXBUF, 0, (struct sockaddr *) &rem, &from_len)) < 0) {
-    perror ("recvfrom");
-    } else {
-    	    buf[r] = 0; /* convert to 'string' by appending a 0 value (equal to '\0') after the last received character */
-    	    printf("FIRST: Recibido mensaje y ya tenemos la direccion de SECOND\n"); fflush (stdout);
-    }
-    
- 
-    
-    /* Using sendto to send information. Since I've made a bind to the socket, the local (source) port of the packet is fixed. 
-    In the rem structure I have the address and port of the remote host, as returned by recvfrom */ 
-    if ( (r = sendto(s, message, sizeof(message), /* flags */ 0, (struct sockaddr *) &rem, sizeof(rem)))<0) {
-	perror ("sendto");
-    } else {
-      buf[r] = 0;
-      printf("FIRST: Mandamos mensaje a la direccion multicast delSECOND\n"); fflush (stdout);
-    }
-
-
-}// Fin del elsif SECOND
-  
-
+	}// Fin del else if SECOND
 
 
 ////////////////////////////////////
