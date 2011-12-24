@@ -1,26 +1,23 @@
-/* Unicast_multicast communication
-THIS IS CODE for host1
+/* 
+PRACTICA 1 SISTEMAS MULTIMEDIA AVANZADOS - RTP
 
-compile with
-	gcc -o host1 mcast_example_host1.c
-execute as
-	./host1
-	
-host1 uses an unicast local address.
-host2 receives data in a multicast address. It receives from ANY sender.
+- AUTORES:
+	CARLOS HERVÁS SILVAN
+	IGNACIO ALONSO DELGADO
 
-host2 should be started first. Then host1. 
-	packet1: host1 (unicast) -> host2(multicast)
-	packet2: host2 (unicast) -> host1(unicast)
-In all cases, PORT is used both as source and destination (just as stated in RFC 4961)
-
-address of host2 is hardcoded (so host2 MUST be executed in 163.117.144.141). host1 can be executed in any host with multicast connectivity to host2 (preferrably from the same link, 163.117.144/24 ) 	
-	
+- FECHA:
+	NOVIEMBRE 2011 	
 */
 
+//////////////////////
+//INCLUDES LIBRERIAS
+//////////////////////
 #include "audioConfig.h"
 #include "confArgs.h"
 #include "conf.h"
+#include "circularBuffer.h"
+#include "functions.h"
+#include "rtp.h"
 
 #include <errno.h>
 #include <sys/types.h>
@@ -32,22 +29,22 @@ address of host2 is hardcoded (so host2 MUST be executed in 163.117.144.141). ho
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "circularBuffer.h"
-#include "functions.h"
-#include "rtp.h"
 #include <math.h>  /* log */
 
-
-//#define MAXBUF 1036 //12 Bytes de cabezera y 1024 de Datos 
 //enum operat {FIRST=1, SECOND=2, BOUNCE=3};
 //enum payload {PCMU=100,  L16_1=11};
 #define PORT 5000
 #define GROUP "225.0.1.1"
 const char message[16]= "Sent from nacho";
 
+// VARIABLES GLOBALES
 struct sockaddr_in local, rem, rem_uni; /* to build address/port info for local node and remote node */
 int s, r;
 
+////////////////////////////////////////////////
+// FUNCION: MAXMIO
+// Calcula el maximo entre dos enteros dados
+////////////////////////////////////////////////
 int maximo (int a, int b){
  int max;
 
@@ -61,7 +58,7 @@ int maximo (int a, int b){
 return max;
 }
 
-/*=====================================================================
+/*============================================================================================
 // activated by Ctrol-C 
 void signalHandler (int sigNum)
 {
@@ -79,123 +76,110 @@ void signalHandler (int sigNum)
   } 
   
   exit (-1);
-}*/
+}=============================================================================================*/
 
 
+//////////////////////////////////////////////
+// FUNCION MAIN
+//////////////////////////////////////////////
 int main(int argc, char *argv[]) {
 
-  int MAXBUF;///////// Lohemoscambiado de constantea variable para hacer los paquetes variables:)
+ 	rtp_hdr_t * ptrARTP;
+ 	rtp_hdr_t * ptrACabeceraRTP;
+	int MAXBUF, descriptorSnd, elementosBuffer, difNumSec=0, Primera=0, primer_rtp=0, status, i, timestamp=0, DataPacket, exponente;
+ 	struct ip_mreq mreq; /* for multicast configuration */
+	struct structSndQuality datQualitySnd;
+	void *BufferCircular;
+	u_int32 numSec=0; 
+	unsigned int nSeq;
+	int operation;  /* Requested mode of operation: first or second. Values defined in conf.h: enum operat {FIRST, SECOND, BOUNCE}; - in your case, BOUNCE won't be supported! */
+	char firstIP[16]; /* For 'second' mode only: returns the requested address of node 'first' */  	char secondMulticastIP[16]; /* For 'first' mode only: returns the requested MULTICAST address of node 'second' if -m option is used */
+	int port; /* Both modes: returns the port requested to be used in the communication */ 
+	int vol; /* Both modes: returns the volume requested (for both playing and recording). Value in range [0..100] */
+	int packetDuration;  /*Both modes: returns the requested duration of the playout of an UDP packet. Measured in ms */
+	int verbose; /* Both modes: returns if the user wants to show detailed traces or not */
+	int payload; /* Both modes: returns the requested payload for the communication. This is the payload to include in RTP packets. Values defined in conf.h: enum payload {PCMU=100,  L16_1=11}. Therefore, in command line either number 100 or number 11 are expected */
+	int bufferingTime; /*  Both modes: returns the buffering time requested before starting playout. Time measured in ms. */;
+	
 
- // char buf[MAXBUF],paqueteRTP[MAXBUF]; /* bufRecord[MAXBUF-12]to receive data from remote node */
-  rtp_hdr_t * ptrARTP;
-  rtp_hdr_t * ptrACabeceraRTP;
-  int descriptorSnd;
-  struct ip_mreq mreq; /* for multicast configuration */
-  struct structSndQuality datQualitySnd;
-  int elementosBuffer; /* record, play, duplex */
-  void *BufferCircular;
-  u_int32 numSec=0; 
-  unsigned int nSeq;
-  int difNumSec=0;
-  int Primera=0,primer_rtp=0;
-  int operation;  /* Requested mode of operation: first or second. Values defined in conf.h: enum operat {FIRST, SECOND, BOUNCE}; - in your case, BOUNCE won't be supported! */
-  char firstIP[16]; /* For 'second' mode only: returns the requested address of node 'first' */    char secondMulticastIP[16]; /* For 'first' mode only: returns the requested MULTICAST address of node 'second' if -m option is used */
-  int port; /* Both modes: returns the port requested to be used in the communication */ 
-  int vol; /* Both modes: returns the volume requested (for both playing and recording). Value in range [0..100] */
-  int packetDuration;  /*Both modes: returns the requested duration of the playout of an UDP packet. Measured in ms */
-  int verbose; /* Both modes: returns if the user wants to show detailed traces or not */
-  int payload; /* Both modes: returns the requested payload for the communication. This is the payload to include in RTP packets. Values defined in conf.h: enum payload {PCMU=100,  L16_1=11}. Therefore, in command line either number 100 or number 11 are expected */
-  int bufferingTime; /*  Both modes: returns the buffering time requested before starting playout. Time measured in ms. */;
-  int status;
-  int i;
-  int timestamp=0;
-  int DataPacket,exponente;
-
-  socklen_t from_len; /* for recvfrom */ 
+	socklen_t from_len; /* for recvfrom */ 
 
 
-  /* we configure the signal 
-  sigInfo.sa_handler = signalHandler;
-  sigInfo.sa_flags = 0;  
-  CALL (sigaction (SIGINT, &sigInfo, NULL), "Error installing signal"); */
+	/* we configure the signal 
+	sigInfo.sa_handler = signalHandler;
+	sigInfo.sa_flags = 0;  
+	CALL (sigaction (SIGINT, &sigInfo, NULL), "Error installing signal"); */
 
 
-   /*Caputra de argumentos*/  
-   captureArguments (argc, argv, &operation, firstIP, secondMulticastIP, &port, &vol, &packetDuration, &verbose, &payload, &bufferingTime);
+	/*Caputra de argumentos*/  
+	captureArguments (argc, argv, &operation, firstIP, secondMulticastIP, &port, &vol, &packetDuration, &verbose, &payload, &bufferingTime);
 	
 	timestamp=(1024/8)/8;
 	datQualitySnd.format=8;
 	datQualitySnd.channels=1;
 	datQualitySnd.freq=8000;
 
-//Calculo de timestamp
- if (payload == PCMU)
-      {
-	timestamp=(1024/8)/8;
-	datQualitySnd.format=8;
-	datQualitySnd.channels=1;
-	datQualitySnd.freq=8000;
-      }
- else if (payload == L16_1)
-      {
-	timestamp=(1024/16)/44.1;
-	datQualitySnd.format=16;
-	datQualitySnd.channels=1;
-	datQualitySnd.freq=44100;
-      }
+	if (payload == PCMU)
+	{
+		timestamp=(1024/8)/8;
+		datQualitySnd.format=8;
+		datQualitySnd.channels=1;
+		datQualitySnd.freq=8000;
+	}
+	else if (payload == L16_1)
+	{
+		timestamp=(1024/16)/44.1;
+		datQualitySnd.format=16;
+		datQualitySnd.channels=1;
+		datQualitySnd.freq=44100;	}
 
-DataPacket=(datQualitySnd.freq*packetDuration/1000)/8;//Al dividir entre 8 tenemos bytes
-printf("Numero de Bytes: %d\n",DataPacket); fflush (stdout);
-exponente= ( log ( (double) DataPacket) / log (2.0));
-DataPacket=1<<exponente;
-printf("Numero Bytes del Datapacket: %d\n",DataPacket); fflush (stdout);
-printf("BufferingTime: %d\n",bufferingTime); fflush (stdout);
-printf("PacketDuration: %d\n",packetDuration); fflush (stdout);
-printf("Numero de Paquetes del Buffer: %d\n",((bufferingTime/packetDuration)+10)); fflush (stdout);
-
-MAXBUF= 12 + DataPacket;
-//MAXBUF= 1036;
-printf("--------------MAXBUFF: %d\n",MAXBUF); fflush (stdout);
-char buf[MAXBUF],paqueteRTP[MAXBUF]; /* bufRecord[MAXBUF-12]to receive data from remote node */
+	//Calculo del tamaño del paquete	
+	DataPacket=(datQualitySnd.freq*packetDuration/1000)/8; //Al dividir entre 8 tenemos bytes
+	printf("-Numero de Bytes: %d\n",DataPacket); fflush (stdout);
+	exponente= ( log ( (double) DataPacket) / log (2.0));
+	DataPacket=1<<exponente;
+	printf("-Numero Bytes del Datapacket: %d\n",DataPacket); fflush (stdout);
+	printf("-BufferingTime: %d\n",bufferingTime); fflush (stdout);
+	printf("-PacketDuration: %d\n",packetDuration); fflush (stdout);
+	printf("-Numero de Paquetes del Buffer: %d\n",((bufferingTime/packetDuration)+10)); fflush (stdout);
+	MAXBUF= 12 + DataPacket;
+	printf("-MAXBUFF: %d\n",MAXBUF); fflush (stdout);
+	char buf[MAXBUF],paqueteRTP[MAXBUF]; /* bufRecord[MAXBUF-12]to receive data from remote node */
 
 
-///////////////////////////
-//Si estamos en el SECOND...
-///////////////////////////
-if (strcmp ("second", argv[1]) == 0) {
-printf("SECOND: Ha entrado en SECOND\n"); fflush (stdout);
+	///////////////////////////
+	//Si estamos en el SECOND...
+	///////////////////////////
+	if (strcmp ("second", argv[1]) == 0) {
+	printf("SECOND: Ha entrado en SECOND\n"); fflush (stdout);
 
-  /* preparing bind */
-  bzero(&local, sizeof(local));
-  local.sin_family = AF_INET;
-  local.sin_port = htons(port);
-  local.sin_addr.s_addr = htonl (INADDR_ANY);//INADDR_ANY
+  	/* preparing bind */
+ 	bzero(&local, sizeof(local));
+ 	local.sin_family = AF_INET;
+  	local.sin_port = htons(port);
+  	local.sin_addr.s_addr = htonl (INADDR_ANY);//INADDR_ANY
 
-  
-  if ((s = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
-    perror("socket");
-    return 1;
-  }
+  	if ((s = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
+   		 perror("socket");
+   		 return 1;
+  	}
 
-  /* binding socket (to unicast local address) */
-  if (bind(s, (struct sockaddr *)&local, sizeof(local)) < 0) {
-    perror("bind");
-    return 1;
-  }
+  	/* binding socket (to unicast local address) */
+ 	if (bind(s, (struct sockaddr *)&local, sizeof(local)) < 0) {
+   		perror("bind");
+   		return 1;
+ 	 }
 
+	/* building structure for remote address/port */
+	bzero(&rem, sizeof(rem));
+	rem.sin_family = AF_INET;
+	rem.sin_port = htons(port);
+	if (inet_aton(firstIP, &rem.sin_addr) < 0) { //secondMulticastIP
+		perror("inet_aton");
+		return 1;
+	}
 
- 
-  /* building structure for remote address/port */
-  bzero(&rem, sizeof(rem));
-
-  rem.sin_family = AF_INET;
-  rem.sin_port = htons(port);
-  if (inet_aton(firstIP, &rem.sin_addr) < 0) { //secondMulticastIP
-    perror("inet_aton");
-    return 1;
-  }
-
-printf("SECOND:Hago SENDTO al FIRST\n"); fflush (stdout);
+	printf("-SECOND:Hago SENDTO al FIRST\n"); fflush (stdout);
     /* Using sendto to send information. Since I've made a bind to the socket, the local (source) port of the packet is fixed. In the rem structure I set the remote (destination) address and port */ 
     if ( (r = sendto(s, message, sizeof(message), /* flags */ 0, (struct sockaddr *) &rem, sizeof(rem)))<0) {
 	perror ("sendto");
