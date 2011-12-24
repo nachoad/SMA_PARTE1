@@ -1,17 +1,20 @@
-/*//////////////////////////////////////////////////////// 
-//   PRACTICA 1 SISTEMAS MULTIMEDIA AVANZADOS - RTP
-// 
-//   - AUTORES:
-//   	CARLOS HERVÁS SILVAN
-//   	IGNACIO ALONSO DELGADO
-//
-//   - FECHA:
-//   	NOVIEMBRE 2011 	
+///*////////////////////////////////////////////////////// 
+////  PRACTICA 1 - SISTEMAS MULTIMEDIA AVANZADOS - RTP  //
+////													//
+////   - AUTORES:										//
+////   	CARLOS HERVÁS SILVAN							//
+////   	IGNACIO ALONSO DELGADO							//
+////													//
+////   - FECHA:											//
+////   	NOVIEMBRE 2011 									//	
+////													//
+////	 - UNIVERSIDAD CARLOS III DE MADRID				//
+//////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////*/
 
-//////////////////////
-//INCLUDES LIBRERIAS
-//////////////////////
+////////////////////////
+// INCLUDES LIBRERIAS //
+////////////////////////
 #include "audioConfig.h"
 #include "confArgs.h"
 #include "conf.h"
@@ -35,11 +38,13 @@
 //enum payload {PCMU=100,  L16_1=11};
 #define PORT 5000
 #define GROUP "225.0.1.1"
-const char message[16]= "Sent from nacho";
+
 
 // VARIABLES GLOBALES
 struct sockaddr_in local, rem, rem_uni; /* to build address/port info for local node and remote node */
 int s, r;
+// mensaje para pruebas
+const char message[16]= "Sent from nacho";
 
 ////////////////////////////////////////////////
 // FUNCION: MAXMIO
@@ -79,9 +84,9 @@ void signalHandler (int sigNum)
 }=============================================================================================*/
 
 
-//////////////////////////////////////////////
-// FUNCION MAIN
-//////////////////////////////////////////////
+///////////////////
+// FUNCION MAIN  //
+///////////////////
 int main(int argc, char *argv[]) {
 
  	rtp_hdr_t * ptrARTP;
@@ -102,9 +107,7 @@ int main(int argc, char *argv[]) {
 	int payload; /* Both modes: returns the requested payload for the communication. This is the payload to include in RTP packets. Values defined in conf.h: enum payload {PCMU=100,  L16_1=11}. Therefore, in command line either number 100 or number 11 are expected */
 	int bufferingTime; /*  Both modes: returns the buffering time requested before starting playout. Time measured in ms. */;
 	
-
 	socklen_t from_len; /* for recvfrom */ 
-
 
 	/* we configure the signal 
 	sigInfo.sa_handler = signalHandler;
@@ -264,38 +267,38 @@ int main(int argc, char *argv[]) {
 	}// Fin del else if SECOND
 
 
-////////////////////////////////////
-//Aqui comienza nuestra aplicaicon
-////////////////////////////////////
-fd_set conjunto_lectura, conjunto_escritura;
-struct timeval tiempo;
-tiempo.tv_sec = 3;
-tiempo.tv_usec = 0;
-/* definición función select */ptrARTP = (rtp_hdr_t *) paqueteRTP;
-int select(int n,
-fd_set *conjunto_lectura, /*conjunto de descriptores esperando en lectura*/
-fd_set *conjunto_escritura, /*conjunto de descriptores esperando en escritura*/
-fd_set *conjunto_excepciones, /*conjunto de descriptores esperando una excepción*/
-struct timeval *timeout /* temporizador */ );
-int res;
+	//////////////////////////////////////////
+	// Aquí comienza el núcleo del programa
+	/////////////////////////////////////////
+	fd_set conjunto_lectura, conjunto_escritura;
+	struct timeval tiempo;
+	tiempo.tv_sec = 3; tiempo.tv_usec = 0;
+	ptrARTP = (rtp_hdr_t *) paqueteRTP;
+	int res;
+	
+	/* definición función select */ 
+	int select(int n,
+		fd_set *conjunto_lectura, /*conjunto de descriptores esperando en lectura*/
+		fd_set *conjunto_escritura, /*conjunto de descriptores esperando en escritura*/
+		fd_set *conjunto_excepciones, /*conjunto de descriptores esperando una excepción*/
+		struct timeval *timeout /* temporizador */ );
 
-/*Creando el Buffer Circular*/
-BufferCircular = createCircularBuffer (((bufferingTime)/packetDuration)+10, MAXBUF-12);/////////Hemos cambiado 20 x paketduration
+	/*Creando el Buffer Circular*/
+	BufferCircular = createCircularBuffer (((bufferingTime)/packetDuration)+10, MAXBUF-12); // +++++++++++++++ Hemos cambiado 20 x packetduration
 
+	/* soundcard configuration */
+	descriptorSnd = 0; /* this is required to request configSnd to open the device for the first time */
 
-/* soundcard configuration */
-descriptorSnd = 0; /* this is required to request configSnd to open the device for the first time */
-
-/* create snd descritor and configure soundcard to given format, frequency, number of channels. We also request setting the fragment to BUFFER_SIZE size */
-configSnd(&descriptorSnd, &datQualitySnd, MAXBUF-12); 
-vol = configVol (datQualitySnd.channels, operation, descriptorSnd, vol);
+	/* create snd descritor and configure soundcard to given format, frequency, number of channels. We also request setting the fragment to BUFFER_SIZE size */
+	configSnd(&descriptorSnd, &datQualitySnd, MAXBUF-12); 
+	vol = configVol (datQualitySnd.channels, operation, descriptorSnd, vol);
 
 
 while(1){
 	tiempo.tv_sec = 5;
 	tiempo.tv_usec = 0;
 
-	printf("--------------------------------------------------------\n\n"); fflush (stdout);
+	printf("-Comienzo del while(1)-\n"); fflush (stdout);
 	
 	/* configurar el conjunto de lectura */
 	FD_ZERO(&conjunto_lectura); /* borro cualquier resto que pudiera haber en la variable */
@@ -304,77 +307,69 @@ while(1){
 	FD_SET(descriptorSnd, &conjunto_lectura); /* añado el descriptor de la tarjeta de sonido al conjunto de lectura */
 	FD_SET(descriptorSnd, &conjunto_escritura); /* añado el descriptor de la tarjeta de sonido al conjunto de lectura */
 
-
-if((elementosBuffer>(bufferingTime)/packetDuration)||(Primera&&elementosBuffer>0)){//////////////////////////// Hemos cambiado 20 x paketduration
-	CALL (res = select (descriptorSnd+1, &conjunto_lectura, &conjunto_escritura, NULL, &tiempo),"Fallo al llamar al select");
-	Primera=1;
-}
-else{
-	CALL (res = select ((maximo(s, descriptorSnd)+1), &conjunto_lectura, NULL, NULL, &tiempo),"Fallo al llamar al select");
-}
-
+	if((elementosBuffer>(bufferingTime)/packetDuration)||(Primera&&elementosBuffer>0)){// ++++++++++++++++ Hemos cambiado 20 x paketduration
+		CALL (res = select (descriptorSnd+1, &conjunto_lectura, &conjunto_escritura, NULL, &tiempo),"Fallo al llamar al select");
+		Primera=1;
+	}
+	else{
+		CALL (res = select ((maximo(s, descriptorSnd)+1), &conjunto_lectura, NULL, NULL, &tiempo),"Fallo al llamar al select");
+	}
 
 	if (res == -1) { 
-		printf("Error en el SELECT\n"); 
+		printf("-Se ha producido un error en el SELECT\n"); 
 		fflush (stdout);
-	}
-		
-	else if (res == 0) {//Ha vencido el TIMEOUT
-		//printf("Ha vencido el TIMEOUT\n"); 
-		//fflush (stdout);
+	} else if (res == 0) { //Ha vencido el TIMEOUT
 		if ( (r = sendto(s, message, sizeof(message), /* flags */ 0, (struct sockaddr *) &rem, sizeof(rem)))<0) {
 			perror ("sendto");
-    		}   
-    		else {
-      			buf[r] = 0;
-      			printf("Nacho envia desde hot1: %s\n",message); 
-      			fflush (stdout);
-    		}
-	}//Else IF
-			
-	else {
-
-/*Recibimos paquetes por el socket y los escribimos en el buffer circular*/
+    	}   
+    	else {
+      		buf[r] = 0;
+      		printf("Se ha enviado el siguiente mensaje: %s\n",message); 
+      		fflush (stdout);
+    	}
+	} else {
+		
+		/////////////////////////////////////////////////////////////////////////////////////	
+		// Recibimos paquetes por el socket y los escribimos en el buffer circular
+		////////////////////////////////////////////////////////////////////////////////////
 		if ( FD_ISSET (s, &conjunto_lectura) == 1){ //El select se ha desbloqueado por el descriptor 's'
 			if(verbose){
-				printf("+\n");fflush (stdout);
+				printf("+");fflush (stdout);
 			}
 
 			from_len = sizeof (rem); /* remember always to set the size of the rem variable in from_len */	
   			if ((r = recvfrom(s, buf, MAXBUF, 0, (struct sockaddr *) &rem_uni, &from_len)) < 0) {
     				perror ("recvfrom");
-    			} 
-    			else {
+    		} 
+    		else {
 				//Comprobamos si es un RTCP o RTP
-				
 				/*if(RTCPvalidity(24,ptrARTCP)){//COMPROBAR QUE EES RTCP
 					ptrARTCP = (rtcp_common_t *) buf;
 					if(ptrARTCP -> pt==rtcp_type_t.RTCP_BYE){
 						printf("BYE RECIBIDO, Cerrando Aplicacion\n");fflush (stdout);
 						exit (-1);
 					}
-						
-
 				}//IF ES RTCP
 
 				else{*/
-					if(primer_rtp==0){//Es la primera vez que recibimos un dato por el SOCKET
-					ptrARTP = (rtp_hdr_t *) buf;
-					nSeq = ptrARTP -> seq;
-                                        memcpy(pointerToInsertData (BufferCircular),ptrARTP+12,MAXBUF-12);
-					primer_rtp=1;
-					elementosBuffer++;
-                                	}
-                                	else{// Verificar perdida de paquetes, tiempos
+				
+					if(primer_rtp==0){ //Es la primera vez que recibimos un dato por el SOCKET
 						ptrARTP = (rtp_hdr_t *) buf;
-						if(ptrARTP -> seq==nSeq+1){// El nuevo paquete es consecutivo al anterior (1,2,3...)
+						nSeq = ptrARTP -> seq;
+                    	memcpy(pointerToInsertData (BufferCircular),ptrARTP+12,MAXBUF-12);
+						primer_rtp=1;
+						elementosBuffer++;
+					}
+                    else{ // Verificar perdida de paquetes, tiempos
+						ptrARTP = (rtp_hdr_t *) buf;
+						if(ptrARTP -> seq==nSeq+1){ // El nuevo paquete es consecutivo al anterior (1,2,3...)
 							memcpy(pointerToInsertData (BufferCircular),ptrARTP+12,MAXBUF-12);
 							elementosBuffer++;
 							nSeq = ptrARTP -> seq;
 						}
 						else{
-							difNumSec=(ptrARTP -> seq)-nSeq;//Calculamos la diferencia dle Numero de secuencia
-							if(difNumSec>0){//Si es mayor que cero repetimos paquetes anteriores y guardo el nuevo en su posicion
+							difNumSec=(ptrARTP -> seq)-nSeq; //Calculamos la diferencia dle Numero de secuencia
+							if(difNumSec>0){ //Si es mayor que cero repetimos paquetes anteriores y guardo el nuevo en su posicion
 								for(i=0;i<difNumSec-1;i++){
 									memcpy(pointerToInsertData (BufferCircular),pointerToInsertData (BufferCircular)-1,MAXBUF-12);//-1024???
 									elementosBuffer++;
@@ -384,53 +379,53 @@ else{
 							}
 						
 						}
-                               		}//Else del primer RTP	
+                     }//Else del primer RTP	
 				// }//Else ES RTCP	
     			} //else del recvfrom
 		 }//Descriptor S del conjunto_lectura
 
 
-
-/*  Leemos del microfono, montamos el paquete RTP y lo enviamos por el Socket*/
+		//////////////////////////////////////////////////////////////////////////////////
+		//  Leemos del microfono, montamos el paquete RTP y lo enviamos por el Socket
+		//////////////////////////////////////////////////////////////////////////////////
 		if( FD_ISSET (descriptorSnd, &conjunto_lectura) == 1){//El select se ha desbloqueado por el descriptor de la tarjeta de sonido en Lectura
-      			//capturo el momento justo en el que va a leer
-
+      		//capturo el momento justo en el que va a leer
 			ptrACabeceraRTP = (rtp_hdr_t *) paqueteRTP;
-			//ptrADatosRTP = (void*)paqueteRTP+sizeof(rtp_hdr_t);
-			
 			status = read (descriptorSnd,ptrACabeceraRTP+12, (MAXBUF-12)); // 1, 12 o 13
 			
-      			if (status != MAXBUF-12)
-				perror("Recorded a different number of bytes than expected");
-
+			if (status != MAXBUF-12){
+				perror("Grabando un número diferente de bytes al que se esperaba\n");
+			}
 			ptrACabeceraRTP -> ssrc = 1111;			
 			ptrACabeceraRTP -> seq = numSec;
-                        ptrACabeceraRTP -> ts = numSec*timestamp;
+            ptrACabeceraRTP -> ts = numSec*timestamp;
 			numSec++;
 
-	
 			//y lo enviamos
 			if ( (r = sendto(s, paqueteRTP, sizeof(paqueteRTP), /* flags */ 0, (struct sockaddr *) &rem, sizeof(rem)))<0) {
 				perror ("sendto");
-   			 } 
+   			} 
 			else {
-     				printf("Enviando paquete\n"); fflush (stdout);
+				printf("Enviando paquete\n"); fflush (stdout);
 				if(verbose){
-					printf(".\n");fflush (stdout);
+					printf(".");fflush (stdout);
 				}
 			}
 		}//Descriptor de la tarjeta de sonido del conjunto_Lectura
 
-
-/*  Leer del buffer circular y escribir en la tarjeta de sonido*/
-		if( FD_ISSET (descriptorSnd, &conjunto_escritura) == 1){//El select se ha desbloqueado por el descSND en escritura
- 			status = write (descriptorSnd, pointerToReadData (BufferCircular), MAXBUF-12); 
-      			if (status != (MAXBUF-12))
-				perror("Played a different number of bytes than expected");
+		//////////////////////////////////////////////////////////////////////
+		//  Leer del buffer circular y escribir en la tarjeta de sonido
+		//////////////////////////////////////////////////////////////////////
+		if( FD_ISSET (descriptorSnd, &conjunto_escritura) == 1){ //El select se ha desbloqueado por el descSnd en escritura
+			status = write (descriptorSnd, pointerToReadData (BufferCircular), MAXBUF-12); 
+      		if (status != (MAXBUF-12)){
+				perror("Reproduciendo un número diferente de bytes al que se esperaba\n");
+			}
 			elementosBuffer--;
-
 		}//Descriptor de la tarjeta de sonido del conjunto_escritura
+	
 	}//ELSE
-}//While(1)
+} //While(1)
    
-}  //MAIN 
+
+} //MAIN 
