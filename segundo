@@ -1,0 +1,102 @@
+ioctl(0, SNDCTL_TMR_TIMEBASE or TCGETS, {B38400 opost isig icanon echo ...}) = 0
+readlink("/proc/self/fd/0", "/dev/pts/0"..., 511) = 10
+access("/var/run/utmpx", F_OK)          = -1 ENOENT (No such file or directory)
+open("/var/run/utmp", O_RDWR|O_LARGEFILE|O_CLOEXEC) = -1 EACCES (Permission denied)
+open("/var/run/utmp", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+fcntl64(3, F_GETFD)                     = 0x1 (flags FD_CLOEXEC)
+fcntl64(3, F_SETFD, FD_CLOEXEC)         = 0
+_llseek(3, 0, [0], SEEK_SET)            = 0
+alarm(0)                                = 0
+rt_sigaction(SIGALRM, {0xb7f06260, [], 0}, {SIG_DFL}, 8) = 0
+alarm(1)                                = 0
+fcntl64(3, F_SETLKW, {type=F_RDLCK, whence=SEEK_SET, start=0, len=0}) = 0
+read(3, "\10\0\0\0\327\3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\2\0\0\0\0\0\0\0~\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\1\0\0\0004N\0\0~\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\10\0\0\0:\r\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\6\0\0\0\17\33\0\0tty1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\6\0\0\0\20\33\0\0tty2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\6\0\0\0\21\33\0\0tty3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\5\0\0\0\22\33\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\7\0\0\0\370`\0\0:0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\7\0\0\0\362a\0\0pts/0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+fcntl64(3, F_SETLKW, {type=F_UNLCK, whence=SEEK_SET, start=0, len=0}) = 0
+alarm(0)                                = 1
+rt_sigaction(SIGALRM, {SIG_DFL}, NULL, 8) = 0
+close(3)                                = 0
+getsid(0)                               = 25077
+getuid32()                              = 289977
+time(NULL)                              = 1321551759
+open("/etc/localtime", O_RDONLY)        = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=946, ...}) = 0
+fstat64(3, {st_mode=S_IFREG|0644, st_size=946, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7f6a000
+read(3, "TZif\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\10\0\0\0\10\0\0\0\0\0"..., 1024) = 946
+close(3)                                = 0
+munmap(0xb7f6a000, 4096)                = 0
+stat64("/etc/localtime", {st_mode=S_IFREG|0644, st_size=946, ...}) = 0
+socket(PF_FILE, SOCK_DGRAM, 0)          = 3
+fcntl64(3, F_SETFD, FD_CLOEXEC)         = 0
+connect(3, {sa_family=AF_FILE, path="/dev/log"...}, 110) = 0
+send(3, "<86>Nov 17 18:42:39 snoopy[26077]"..., 82, MSG_NOSIGNAL) = 82
+execve("./conf1", ["./conf1", "first"], [/* 43 vars */]) = 0
+brk(0)                                  = 0x804d000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap2(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb8061000
+access("/etc/ld.so.preload", R_OK)      = 0
+open("/etc/ld.so.preload", O_RDONLY)    = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=16, ...}) = 0
+mmap2(NULL, 16, PROT_READ|PROT_WRITE, MAP_PRIVATE, 3, 0) = 0xb8060000
+close(3)                                = 0
+open("/lib/snoopy.so", O_RDONLY)        = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\220\5\0\0004\0\0\0@"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=4096, ...}) = 0
+mmap2(NULL, 7404, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb805e000
+mmap2(0xb805f000, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0) = 0xb805f000
+close(3)                                = 0
+munmap(0xb8060000, 16)                  = 0
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=147212, ...}) = 0
+mmap2(NULL, 147212, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb803a000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/libm.so.6", O_RDONLY)        = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0@4\0\0004\0\0\0P"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=149328, ...}) = 0
+mmap2(NULL, 151680, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb8014000
+mmap2(0xb8038000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x23) = 0xb8038000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/libc.so.6", O_RDONLY)        = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\260e\1\0004\0\0\0t"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=1294572, ...}) = 0
+mmap2(NULL, 1300080, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7ed6000
+mmap2(0xb800e000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x138) = 0xb800e000
+mmap2(0xb8011000, 9840, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb8011000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/libdl.so.2", O_RDONLY)       = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0`\n\0\0004\0\0\0H"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=9680, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb8060000
+mmap2(NULL, 12412, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7ed2000
+mmap2(0xb7ed4000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1) = 0xb7ed4000
+close(3)                                = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7ed1000
+set_thread_area({entry_number:-1 -> 6, base_addr:0xb7ed16b0, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}) = 0
+mprotect(0xb800e000, 4096, PROT_READ)   = 0
+munmap(0xb803a000, 147212)              = 0
+socket(PF_INET, SOCK_DGRAM, IPPROTO_IP) = 3
+bind(3, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
+setsockopt(3, SOL_IP, IP_ADD_MEMBERSHIP, "\0\0\0\0\0\0\0\0"..., 8) = -1 EINVAL (Invalid argument)
+dup(2)                                  = 4
+fcntl64(4, F_GETFL)                     = 0x2 (flags O_RDWR)
+brk(0)                                  = 0x804d000
+brk(0x806e000)                          = 0x806e000
+fstat64(4, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb805d000
+_llseek(4, 0, 0xbfe7cf78, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(4, "setsockopt: Invalid argument\n"..., 29) = 29
+close(4)                                = 0
+munmap(0xb805d000, 4096)                = 0
+exit_group(1)                           = ?

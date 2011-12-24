@@ -1,0 +1,1187 @@
+ioctl(0, SNDCTL_TMR_TIMEBASE or TCGETS, {B38400 opost isig icanon echo ...}) = 0
+readlink("/proc/self/fd/0", "/dev/pts/0"..., 511) = 10
+access("/var/run/utmpx", F_OK)          = -1 ENOENT (No such file or directory)
+open("/var/run/utmp", O_RDWR|O_LARGEFILE|O_CLOEXEC) = -1 EACCES (Permission denied)
+open("/var/run/utmp", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+fcntl64(3, F_GETFD)                     = 0x1 (flags FD_CLOEXEC)
+fcntl64(3, F_SETFD, FD_CLOEXEC)         = 0
+_llseek(3, 0, [0], SEEK_SET)            = 0
+alarm(0)                                = 0
+rt_sigaction(SIGALRM, {0xb7ec9260, [], 0}, {SIG_DFL}, 8) = 0
+alarm(1)                                = 0
+fcntl64(3, F_SETLKW, {type=F_RDLCK, whence=SEEK_SET, start=0, len=0}) = 0
+read(3, "\10\0\0\0\325\3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\2\0\0\0\0\0\0\0~\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\1\0\0\0004N\0\0~\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\10\0\0\0|\25\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\6\0\0\0A#\0\0tty1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\6\0\0\0B#\0\0tty2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\6\0\0\0C#\0\0tty3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\5\0\0\0D#\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\7\0\0\0n-\0\0:0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\7\0\0\0\367.\0\0pts/0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+fcntl64(3, F_SETLKW, {type=F_UNLCK, whence=SEEK_SET, start=0, len=0}) = 0
+alarm(0)                                = 1
+rt_sigaction(SIGALRM, {SIG_DFL}, NULL, 8) = 0
+close(3)                                = 0
+getsid(0)                               = 12028
+getuid32()                              = 289977
+time(NULL)                              = 1321472495
+open("/etc/localtime", O_RDONLY)        = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=946, ...}) = 0
+fstat64(3, {st_mode=S_IFREG|0644, st_size=946, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7f2d000
+read(3, "TZif\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\10\0\0\0\10\0\0\0\0\0"..., 1024) = 946
+close(3)                                = 0
+munmap(0xb7f2d000, 4096)                = 0
+stat64("/etc/localtime", {st_mode=S_IFREG|0644, st_size=946, ...}) = 0
+socket(PF_FILE, SOCK_DGRAM, 0)          = 3
+fcntl64(3, F_SETFD, FD_CLOEXEC)         = 0
+connect(3, {sa_family=AF_FILE, path="/dev/log"...}, 110) = 0
+send(3, "<86>Nov 16 20:41:35 snoopy[20432]"..., 99, MSG_NOSIGNAL) = 99
+execve("./conf1", ["./conf1", "second", "163.117.168.144"], [/* 43 vars */]) = 0
+brk(0)                                  = 0x804d000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap2(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb8042000
+access("/etc/ld.so.preload", R_OK)      = 0
+open("/etc/ld.so.preload", O_RDONLY)    = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=16, ...}) = 0
+mmap2(NULL, 16, PROT_READ|PROT_WRITE, MAP_PRIVATE, 3, 0) = 0xb8041000
+close(3)                                = 0
+open("/lib/snoopy.so", O_RDONLY)        = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\220\5\0\0004\0\0\0@"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=4096, ...}) = 0
+mmap2(NULL, 7404, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb803f000
+mmap2(0xb8040000, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0) = 0xb8040000
+close(3)                                = 0
+munmap(0xb8041000, 16)                  = 0
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=147212, ...}) = 0
+mmap2(NULL, 147212, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb801b000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/libm.so.6", O_RDONLY)        = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0@4\0\0004\0\0\0P"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=149328, ...}) = 0
+mmap2(NULL, 151680, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7ff5000
+mmap2(0xb8019000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x23) = 0xb8019000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/libc.so.6", O_RDONLY)        = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\260e\1\0004\0\0\0t"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=1294572, ...}) = 0
+mmap2(NULL, 1300080, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7eb7000
+mmap2(0xb7fef000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x138) = 0xb7fef000
+mmap2(0xb7ff2000, 9840, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb7ff2000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/libdl.so.2", O_RDONLY)       = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0`\n\0\0004\0\0\0H"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=9680, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb8041000
+mmap2(NULL, 12412, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7eb3000
+mmap2(0xb7eb5000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1) = 0xb7eb5000
+close(3)                                = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7eb2000
+set_thread_area({entry_number:-1 -> 6, base_addr:0xb7eb26b0, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}) = 0
+mprotect(0xb7fef000, 4096, PROT_READ)   = 0
+munmap(0xb801b000, 147212)              = 0
+socket(PF_INET, SOCK_DGRAM, IPPROTO_IP) = 3
+bind(3, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
+sendto(3, "Sent from host1\0"..., 16, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 16
+fstat64(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803e000
+write(1, "First: hace Send to Al Second (Mu"..., 41) = 41
+recvfrom(3, "Sent from host1\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 16
+write(1, "Host1: Mensaje recibido del SECON"..., 36) = 36
+brk(0)                                  = 0x804d000
+brk(0x8071000)                          = 0x8071000
+open("/dev/dsp", O_RDWR)                = 4
+ioctl(4, SNDCTL_DSP_SETFRAGMENT, 0xbfd5df9c) = 0
+ioctl(4, SNDCTL_DSP_SETFMT or SOUND_PCM_READ_BITS, 0xbfd5df98) = 0
+ioctl(4, SOUND_PCM_READ_CHANNELS, 0xbfd5df98) = 0
+ioctl(4, SNDCTL_DSP_SPEED or SOUND_PCM_READ_RATE, 0xbfd5df98) = 0
+ioctl(4, MTRRIOC_DEL_PAGE_ENTRY, 0xbfd5df98) = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 1 (in [4], left {4, 992481})
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\0\0\0\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, NULL, 1024)          = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 1 (in [3], left {4, 999998})
+recvfrom(3, "\0\0\0\0\0\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 1 (in [4], left {4, 874102})
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\1\0\20\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, NULL, 1024)          = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\1\0\20\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\2\0 \0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\2\0 \0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\3\0000\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999997})
+recvfrom(3, "\0\0\3\0000\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\4\0@\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\4\0@\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\5\0P\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\5\0P\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\6\0`\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999997})
+recvfrom(3, "\0\0\6\0`\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\7\0p\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\7\0p\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\10\0\200\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\10\0\200\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\t\0\220\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\t\0\220\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\n\0\240\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\n\0\240\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\v\0\260\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\v\0\260\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\f\0\300\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999997})
+recvfrom(3, "\0\0\f\0\300\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\r\0\320\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\r\0\320\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\16\0\340\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\16\0\340\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\17\0\360\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\17\0\360\0\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\20\0\0\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999997})
+recvfrom(3, "\0\0\20\0\0\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\21\0\20\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\21\0\20\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\22\0 \1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\22\0 \1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\23\0000\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\23\0000\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\24\0@\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\24\0@\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\25\0P\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\25\0P\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\26\0`\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\26\0`\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\27\0p\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\27\0p\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\30\0\200\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\30\0\200\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\31\0\220\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\31\0\220\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\32\0\240\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\32\0\240\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\33\0\260\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\33\0\260\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\34\0\300\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\34\0\300\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\35\0\320\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\35\0\320\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\36\0\340\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\36\0\340\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\37\0\360\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0\37\0\360\1\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0 \0\0\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0 \0\0\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0!\0\20\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0!\0\20\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0\"\0 \2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999996})
+recvfrom(3, "\0\0\"\0 \2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0#\0000\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0#\0000\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0$\0@\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0$\0@\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0%\0P\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0%\0P\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0&\0`\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0&\0`\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0'\0p\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0'\0p\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0(\0\200\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0(\0\200\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0)\0\220\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0)\0\220\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0*\0\240\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0*\0\240\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0+\0\260\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+write(1, "Enviando paquete a conf2 \n"..., 26) = 26
+write(-1208021004, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1024) = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Played a different number of byte"..., 70) = 70
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(5, [3 4], NULL, NULL, {5, 0})    = 2 (in [3 4], left {4, 999998})
+recvfrom(3, "\0\0+\0\260\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("127.0.0.1")}, [16]) = 1036
+read(-1208021004, 0xbfd5e168, 1024)     = -1 EBADF (Bad file descriptor)
+dup(2)                                  = 5
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fstat64(5, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb803d000
+_llseek(5, 0, 0xbfd5de38, SEEK_CUR)     = -1 ESPIPE (Illegal seek)
+write(5, "Recorded a different number of by"..., 72) = 72
+close(5)                                = 0
+munmap(0xb803d000, 4096)                = 0
+sendto(3, "\0\0,\0\300\2\0\0W\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 1036, 0, {sa_family=AF_INET, sin_port=htons(5004), sin_addr=inet_addr("0.0.0.0")}, 16) = 1036
+--- SIGINT (Interrupt) @ 0 (0) ---
++++ killed by SIGINT +++

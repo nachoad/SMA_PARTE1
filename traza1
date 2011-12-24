@@ -1,0 +1,104 @@
+ioctl(0, SNDCTL_TMR_TIMEBASE or TCGETS, {B38400 opost isig icanon echo ...}) = 0
+readlink("/proc/self/fd/0", "/dev/pts/0"..., 511) = 10
+access("/var/run/utmpx", F_OK)          = -1 ENOENT (No such file or directory)
+open("/var/run/utmp", O_RDWR|O_LARGEFILE|O_CLOEXEC) = -1 EACCES (Permission denied)
+open("/var/run/utmp", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+fcntl64(3, F_GETFD)                     = 0x1 (flags FD_CLOEXEC)
+fcntl64(3, F_SETFD, FD_CLOEXEC)         = 0
+_llseek(3, 0, [0], SEEK_SET)            = 0
+alarm(0)                                = 0
+rt_sigaction(SIGALRM, {0xb7f6f260, [], 0}, {SIG_DFL}, 8) = 0
+alarm(1)                                = 0
+fcntl64(3, F_SETLKW, {type=F_RDLCK, whence=SEEK_SET, start=0, len=0}) = 0
+read(3, "\10\0\0\0\327\3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\2\0\0\0\0\0\0\0~\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\1\0\0\0004N\0\0~\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\10\0\0\0\332\31\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\6\0\0\0\235'\0\0tty1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\6\0\0\0\236'\0\0tty2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\6\0\0\0\237'\0\0tty3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\5\0\0\0\240'\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\7\0\0\0\313f\0\0:0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+read(3, "\7\0\0\0\264g\0\0pts/0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+fcntl64(3, F_SETLKW, {type=F_UNLCK, whence=SEEK_SET, start=0, len=0}) = 0
+alarm(0)                                = 1
+rt_sigaction(SIGALRM, {SIG_DFL}, NULL, 8) = 0
+close(3)                                = 0
+getsid(0)                               = 26552
+getuid32()                              = 289977
+time(NULL)                              = 1320689603
+open("/etc/localtime", O_RDONLY)        = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=946, ...}) = 0
+fstat64(3, {st_mode=S_IFREG|0644, st_size=946, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7fd3000
+read(3, "TZif\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\10\0\0\0\10\0\0\0\0\0"..., 1024) = 946
+close(3)                                = 0
+munmap(0xb7fd3000, 4096)                = 0
+stat64("/etc/localtime", {st_mode=S_IFREG|0644, st_size=946, ...}) = 0
+socket(PF_FILE, SOCK_DGRAM, 0)          = 3
+fcntl64(3, F_SETFD, FD_CLOEXEC)         = 0
+connect(3, {sa_family=AF_FILE, path="/dev/log"...}, 110) = 0
+send(3, "<86>Nov  7 19:13:23 snoopy[27958]"..., 76, MSG_NOSIGNAL) = 76
+execve("./host1", ["./host1"], [/* 43 vars */]) = 0
+brk(0)                                  = 0x804a000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap2(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7f10000
+access("/etc/ld.so.preload", R_OK)      = 0
+open("/etc/ld.so.preload", O_RDONLY)    = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=16, ...}) = 0
+mmap2(NULL, 16, PROT_READ|PROT_WRITE, MAP_PRIVATE, 3, 0) = 0xb7f0f000
+close(3)                                = 0
+open("/lib/snoopy.so", O_RDONLY)        = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\220\5\0\0004\0\0\0@"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=4096, ...}) = 0
+mmap2(NULL, 7404, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7f0d000
+mmap2(0xb7f0e000, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0) = 0xb7f0e000
+close(3)                                = 0
+munmap(0xb7f0f000, 16)                  = 0
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=147212, ...}) = 0
+mmap2(NULL, 147212, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb7ee9000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/libc.so.6", O_RDONLY)        = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\260e\1\0004\0\0\0t"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=1294572, ...}) = 0
+mmap2(NULL, 1300080, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7dab000
+mmap2(0xb7ee3000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x138) = 0xb7ee3000
+mmap2(0xb7ee6000, 9840, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb7ee6000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/libdl.so.2", O_RDONLY)       = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0`\n\0\0004\0\0\0H"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=9680, ...}) = 0
+mmap2(NULL, 12412, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7da7000
+mmap2(0xb7da9000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1) = 0xb7da9000
+close(3)                                = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7f0f000
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7da6000
+set_thread_area({entry_number:-1 -> 6, base_addr:0xb7da66b0, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}) = 0
+mprotect(0xb7ee3000, 4096, PROT_READ)   = 0
+munmap(0xb7ee9000, 147212)              = 0
+socket(PF_INET, SOCK_DGRAM, IPPROTO_IP) = 3
+bind(3, {sa_family=AF_INET, sin_port=htons(5000), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
+sendto(3, "Sent from host1\0"..., 16, 0, {sa_family=AF_INET, sin_port=htons(5000), sin_addr=inet_addr("225.0.1.1")}, 16) = 16
+fstat64(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7f0c000
+write(1, "Host1: Using sendto to send data "..., 58) = 58
+recvfrom(3, "Sent from host2\0"..., 256, 0, {sa_family=AF_INET, sin_port=htons(5000), sin_addr=inet_addr("163.117.144.159")}, [16]) = 16
+write(1, "Host1: Message received from unic"..., 78) = 78
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(4, [3], NULL, NULL, {5, 0})      = 0 (Timeout)
+sendto(3, "Sent from host1\0"..., 16, 0, {sa_family=AF_INET, sin_port=htons(5000), sin_addr=inet_addr("225.0.1.1")}, 16) = 16
+write(1, "Nacho envia desde hot1: Sent from"..., 40) = 40
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(4, [3], NULL, NULL, {5, 0})      = 0 (Timeout)
+sendto(3, "Sent from host1\0"..., 16, 0, {sa_family=AF_INET, sin_port=htons(5000), sin_addr=inet_addr("225.0.1.1")}, 16) = 16
+write(1, "Nacho envia desde hot1: Sent from"..., 40) = 40
+write(1, "---------------------------------"..., 57) = 57
+write(1, "\n"..., 1)                    = 1
+select(4, [3], NULL, NULL, {5, 0})      = ? ERESTARTNOHAND (To be restarted)
+--- SIGINT (Interrupt) @ 0 (0) ---
++++ killed by SIGINT +++
