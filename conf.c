@@ -1,14 +1,14 @@
 ///*////////////////////////////////////////////////////// 
 ////  PRACTICA 1 - SISTEMAS MULTIMEDIA AVANZADOS - RTP  //
-////													//
-////   - AUTORES:										//
-////   	CARLOS HERVÁS SILVAN							//
-////   	IGNACIO ALONSO DELGADO							//
-////													//
-////   - FECHA:											//
-////   	NOVIEMBRE 2011 									//	
-////													//
-////	 - UNIVERSIDAD CARLOS III DE MADRID				//
+////                                                    //
+////   - AUTORES:                                       //
+////   	CARLOS HERVÁS SILVAN                            //
+////   	IGNACIO ALONSO DELGADO                          //
+////                                                    //
+////   - FECHA:                                         //
+////   	NOVIEMBRE 2011                                  //	
+////                                                    //
+////	 - UNIVERSIDAD CARLOS III DE MADRID             //
 //////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////*/
 
@@ -338,10 +338,10 @@ while(1){
 			}
 
 			from_len = sizeof (rem); /* remember always to set the size of the rem variable in from_len */	
-  			if ((r = recvfrom(s, buf, MAXBUF, 0, (struct sockaddr *) &rem_uni, &from_len)) < 0) {
-    				perror ("recvfrom");
-    		} 
-    		else {
+			if ((r = recvfrom(s, buf, MAXBUF, 0, (struct sockaddr *) &rem_uni, &from_len)) < 0) {
+				perror ("recvfrom");
+			} 
+			else {
 				//Comprobamos si es un RTCP o RTP
 				/*if(RTCPvalidity(24,ptrARTCP)){//COMPROBAR QUE EES RTCP
 					ptrARTCP = (rtcp_common_t *) buf;
@@ -353,43 +353,42 @@ while(1){
 
 				else{*/
 				
-					if(primer_rtp==0){ //Es la primera vez que recibimos un dato por el SOCKET
-						ptrARTP = (rtp_hdr_t *) buf;
-						nSeq = ptrARTP -> seq;
-                    	memcpy(pointerToInsertData (BufferCircular),ptrARTP+12,MAXBUF-12);
-						primer_rtp=1;
+				if(primer_rtp==0){ //Es la primera vez que recibimos un dato por el SOCKET
+					ptrARTP = (rtp_hdr_t *) buf;
+					nSeq = ptrARTP -> seq;
+					memcpy(pointerToInsertData (BufferCircular),ptrARTP+12,MAXBUF-12);
+					primer_rtp=1;
+					elementosBuffer++;
+				}
+				else{ // Verificar perdida de paquetes, tiempos
+					ptrARTP = (rtp_hdr_t *) buf;
+					if(ptrARTP -> seq==nSeq+1){ // El nuevo paquete es consecutivo al anterior (1,2,3...)
+						memcpy(pointerToInsertData (BufferCircular),ptrARTP+12,MAXBUF-12);
 						elementosBuffer++;
+						nSeq = ptrARTP -> seq;
 					}
-                    else{ // Verificar perdida de paquetes, tiempos
-						ptrARTP = (rtp_hdr_t *) buf;
-						if(ptrARTP -> seq==nSeq+1){ // El nuevo paquete es consecutivo al anterior (1,2,3...)
+					else{
+						difNumSec=(ptrARTP -> seq)-nSeq; //Calculamos la diferencia dle Numero de secuencia
+						if(difNumSec>0){ //Si es mayor que cero repetimos paquetes anteriores y guardo el nuevo en su posicion
+							for(i=0;i<difNumSec-1;i++){
+								memcpy(pointerToInsertData (BufferCircular),pointerToInsertData (BufferCircular)-1,MAXBUF-12);//-1024???
+								elementosBuffer++;
+							} // cierra FOR
 							memcpy(pointerToInsertData (BufferCircular),ptrARTP+12,MAXBUF-12);
-							elementosBuffer++;
 							nSeq = ptrARTP -> seq;
-						}
-						else{
-							difNumSec=(ptrARTP -> seq)-nSeq; //Calculamos la diferencia dle Numero de secuencia
-							if(difNumSec>0){ //Si es mayor que cero repetimos paquetes anteriores y guardo el nuevo en su posicion
-								for(i=0;i<difNumSec-1;i++){
-									memcpy(pointerToInsertData (BufferCircular),pointerToInsertData (BufferCircular)-1,MAXBUF-12);//-1024???
-									elementosBuffer++;
-								}
-								memcpy(pointerToInsertData (BufferCircular),ptrARTP+12,MAXBUF-12);
-								nSeq = ptrARTP -> seq;
-							}
-						
-						}
-                     }//Else del primer RTP	
+						} // cierra IF
+					}
+				}// cierra ELSE del IF primer RTP	
 				// }//Else ES RTCP	
-    			} //else del recvfrom
-		 }//Descriptor S del conjunto_lectura
+			} // cierra ELSE del recvfrom
+		}//Descriptor S del conjunto_lectura
 
 
 		//////////////////////////////////////////////////////////////////////////////////
 		//  Leemos del microfono, montamos el paquete RTP y lo enviamos por el Socket
 		//////////////////////////////////////////////////////////////////////////////////
 		if( FD_ISSET (descriptorSnd, &conjunto_lectura) == 1){//El select se ha desbloqueado por el descriptor de la tarjeta de sonido en Lectura
-      		//capturo el momento justo en el que va a leer
+			//capturo el momento justo en el que va a leer
 			ptrACabeceraRTP = (rtp_hdr_t *) paqueteRTP;
 			status = read (descriptorSnd,ptrACabeceraRTP+12, (MAXBUF-12)); // 1, 12 o 13
 			
@@ -398,13 +397,13 @@ while(1){
 			}
 			ptrACabeceraRTP -> ssrc = 1111;			
 			ptrACabeceraRTP -> seq = numSec;
-            ptrACabeceraRTP -> ts = numSec*timestamp;
+			ptrACabeceraRTP -> ts = numSec*timestamp;
 			numSec++;
 
 			//y lo enviamos
 			if ( (r = sendto(s, paqueteRTP, sizeof(paqueteRTP), /* flags */ 0, (struct sockaddr *) &rem, sizeof(rem)))<0) {
 				perror ("sendto");
-   			} 
+			} 
 			else {
 				printf("Enviando paquete\n"); fflush (stdout);
 				if(verbose){
@@ -418,11 +417,11 @@ while(1){
 		//////////////////////////////////////////////////////////////////////
 		if( FD_ISSET (descriptorSnd, &conjunto_escritura) == 1){ //El select se ha desbloqueado por el descSnd en escritura
 			status = write (descriptorSnd, pointerToReadData (BufferCircular), MAXBUF-12); 
-      		if (status != (MAXBUF-12)){
+			if (status != (MAXBUF-12)){
 				perror("Reproduciendo un número diferente de bytes al que se esperaba\n");
 			}
 			elementosBuffer--;
-		}//Descriptor de la tarjeta de sonido del conjunto_escritura
+		} // cierra IF de descriptor de la tarjeta de sonido del conjunto_escritura
 	
 	}//ELSE
 } //While(1)
