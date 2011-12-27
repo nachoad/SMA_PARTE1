@@ -1,4 +1,4 @@
-/*
+/*/
 audioSimple record|play|duplex [-b(8|16)] [stereo] [-vVOLUME] [-dDURATION] [-fFREQUENCY] fileName
 
 Operations:
